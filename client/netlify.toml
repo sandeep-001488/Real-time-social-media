@@ -1,10 +1,10 @@
 [build]
-  base = "social media"  # Base directory where your frontend project is located
+  base = "client"  # Updated base directory where your frontend project is located
   command = "npm run build"  # Command to build your frontend project
-  publish = "social media/build"  # Directory where your frontend build files will be located
+  publish = "client/build"  # Directory where your frontend build files will be located
 
 [dev]
-  base = "social media"  # Base directory for local development (if different from production)
+  base = "client"  # Updated base directory for local development (if different from production)
   command = "npm start"  # Command to run your local development server
 
 [context.production.environment]
