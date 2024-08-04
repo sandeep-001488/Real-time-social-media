@@ -2,7 +2,7 @@ services:
   - type: web
     name: my-socket-server
     env: node
-    buildCommand: npm install
+    buildCommand: echo "No build step needed"  # Optional: Echo a message if no build step
     startCommand: npm start
     plan: free
     region: oregon
