@@ -8,13 +8,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
-  const PF=process.env.REACT_APP_PUBLIC_FOLDER
-  const {user}=useContext(AuthContext)
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="topbar">
       <div className="left-container">
-        <Link to='/' style={{textDecoration:"none"}}>
-        <span className="logo">Social Media</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">Social Media</span>
         </Link>
       </div>
       <div className="center-container">
@@ -38,7 +39,12 @@ export default function Topbar() {
             <span className="topbarIconBadge">4</span>
           </div>
           <div className="topbarIconItem">
-            <IoChatbubbleOutline />
+            {/* done extra on my own  */}
+            <Link to="/messenger" style={{ textDecoration: "none" }}>
+              
+              <IoChatbubbleOutline />
+            </Link>
+            {/* <IoChatbubbleOutline  /> */}
             <span className="topbarIconBadge">2</span>
           </div>
           <div className="topbarIconItem">
@@ -46,8 +52,17 @@ export default function Topbar() {
             <span className="topbarIconBadge">3</span>
           </div>
         </div>
-        <Link to={`profile/${user.username}`}>
-        <img src={user.profilePicture? PF+user.profilePicture:PF+"nocover.jpg"} alt="" className="topbarImg" /></Link>
+        <Link to={`/profile/${user.username}`}>
+          <img
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "nocover.jpg"
+            }
+            alt=""
+            className="topbarImg"
+          />
+        </Link>
       </div>
     </div>
   );

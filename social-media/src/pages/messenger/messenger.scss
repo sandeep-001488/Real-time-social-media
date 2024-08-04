@@ -1,0 +1,118 @@
+.messenger{
+    height: calc(100vh - 70px);
+    display: flex;
+}
+.chatMenu{
+    flex: 3.5;
+    overflow-y: scroll;
+}
+.chatMenuInput{
+    width: 90%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid gray;
+    overflow-y: scroll;
+}
+.chatBox{
+    flex: 5.5;
+}
+.chatBoxTopbar{
+    position:fixed;
+    height: 50px;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(240, 237, 237);
+    border-radius: 10px;
+    margin-top: 5px;
+    z-index: 999;
+}
+.chatBoxTobarDisable{
+    display: none;
+}
+.chatBoxTopbarLeft{
+    display: flex;
+    align-items: center;
+   
+}
+.chatBoxTopbarLeftImg{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chatBoxTopbarName{
+    margin-left: 20px;
+    font-weight: 700;
+
+}
+.chatBoxTopbarRight{
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 30px;
+    gap: 20px;
+}
+.chatBoxTopbarRightVideo{
+    height: 30px;
+    width: 30px;
+}
+.chatBoxTopbarRightCall{
+    height: 25px;
+    width: 25px;
+}
+.chatBoxWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.chatBoxTop{
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+    padding-right: 10px;
+    padding-top: 30px;
+}
+.chatBoxBottom{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.noConversationText{
+    position: absolute;
+    font-weight: 700;
+    font-size: 35px;
+    top: 30%;
+    left: 20%;
+    color: rgb(199, 196, 196);
+    opacity: 0.8;
+   text-align: center;
+}
+
+.chatMessageInput{
+    width: 80%;
+    height: 90px;
+    padding: 10px;
+}
+
+.chatSubmitButton{
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: teal;
+    color: white;
+}
+.chatOnline{
+  flex:3;  
+}
+.chatBoxWrapper,.chatMenuWrapper,.chatOnlineWrapper{
+    padding: 10px;
+    height: 100%;
+}
+

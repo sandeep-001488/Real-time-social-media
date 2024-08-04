@@ -16,10 +16,12 @@ const username=useParams().username
     const fetchUser= async()=>{
       const res =await axios.get(`http://localhost:5000/api/users?username=${username}`)
       setUser(res.data)
+      // console.log(res.data);
     }
 
     fetchUser()
   },[username])
+  // console.log(user.profilePicture);
   return (
     <>
       <Topbar />
@@ -30,13 +32,13 @@ const username=useParams().username
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture && `${PF}/${user.coverPicture}`}
+                src={user.coverPicture? `${PF}/${user.coverPicture}`:`${PF}noCover.jpg`}
 
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture && `${PF}/${user.profilePicture}`}
+                src={user.profilePicture ? `${PF}/${user.profilePicture}`:`${PF}noCover.jpg`}
 
                 alt=""
               />

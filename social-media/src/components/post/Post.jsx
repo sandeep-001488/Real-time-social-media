@@ -6,49 +6,65 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { format } from "timeago.js";
 import { AuthContext } from "../../context/AuthContext";
+// require('dotenv').config();
+
 
 export default function Post({ post }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const {user}=useContext(AuthContext)
   const [like, setLike] = useState(post.likes.length);
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(post.likes.includes(user._id));
   const [userData, setUserData] = useState({});
-
-  useEffect(()=>{
-    setLike(post.likes.includes(user._id))
-  },[post.likes, user._id])
-  const likeHandler = async() => {
-
-    try {
-       await axios.put(`http://localhost:5000/api/posts/${post._id}/like`,{userId:user._id})
-    } catch (error) {
-      console.log(`error in like handler${error}`);
-    }
-    setLike(isLiked ? like - 1 : like + 1);
-    setIsLiked(!isLiked);
-  };
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(
-        `http://localhost:5000/api/users?userId=${post.userId}`
-      );
-      setUserData(res.data);
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/users?userId=${post.userId}`
+        );
+        setUserData(res.data);
+      } catch (error) {
+        console.log(`Error fetching user data: ${error}`);
+      }
     };
 
     fetchUser();
   }, [post.userId]);
+
+  const likeHandler = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/posts/${post._id}/like`,
+        { userId: user._id }
+      );
+      if (response.data.message === "post has been liked") {
+        setLike((prevLike) => prevLike + 1);
+      } else if (response.data.message === "post has been disliked"){
+        setLike((prevLike) => prevLike - 1); 
+      }
+      setIsLiked(!isLiked); 
+    } catch (error) {
+      console.log(`Error in like handler: ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    setIsLiked(post.likes.includes(user._id));
+  }, [post.likes, user._id]);
+
+
+
 
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${userData.username}`}>
+            <Link to={`/profile/${userData.username}`}>
               <img
                 className="postProfileImg"
                 src={
-                  PF+userData.profilePicture
+                  userData.profilePicture?PF+userData.profilePicture:PF+"noCover.jpg"
                 }
                 alt=""
               />
@@ -62,7 +78,9 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={PF+post.img} alt="" />
+          {post.img && (
+            <img className="postImg" src={PF+post.img} alt="" />
+          )}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
