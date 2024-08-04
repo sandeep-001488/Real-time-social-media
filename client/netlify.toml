@@ -1,17 +1,17 @@
 [build]
-  base = "client"  # Updated base directory where your frontend project is located
-  command = "npm run build"  # Command to build your frontend project
-  publish = "client/build"  # Directory where your frontend build files will be located
+  base = "client"
+  command = "npm run build"
+  publish = "client/build"
 
 [dev]
-  base = "client"  # Updated base directory for local development (if different from production)
-  command = "npm start"  # Command to run your local development server
+  base = "client"
+  command = "npm start"
 
 [context.production.environment]
-  NODE_ENV = "production"  # Environment variables specific to production
+  NODE_ENV = "production"
 
 [context.deploy-preview.environment]
-  NODE_ENV = "development"  # Environment variables specific to deploy previews
+  NODE_ENV = "development"
 
 [context.branch-deploy.environment]
-  NODE_ENV = "development"  # Environment variables specific to branch deploys
+  NODE_ENV = "development"
