@@ -1,25 +1,17 @@
 [build]
-  base = "social media"
-
-  command = "npm run build"
-
-  publish = "social media/build"
+  base = "social media"  # Base directory where your frontend project is located
+  command = "npm run build"  # Command to build your frontend project
+  publish = "social media/build"  # Directory where your frontend build files will be located
 
 [dev]
-  # Base directory for local development (if different from production)
-  base = "social media"
-
-  # Command to run your local development server
-  command = "npm start"
+  base = "social media"  # Base directory for local development (if different from production)
+  command = "npm start"  # Command to run your local development server
 
 [context.production.environment]
-  # Environment variables specific to production
-  NODE_ENV = "production"
+  NODE_ENV = "production"  # Environment variables specific to production
 
 [context.deploy-preview.environment]
-  # Environment variables specific to deploy previews
-  NODE_ENV = "development"
+  NODE_ENV = "development"  # Environment variables specific to deploy previews
 
 [context.branch-deploy.environment]
-  # Environment variables specific to branch deploys
-  NODE_ENV = "development"
+  NODE_ENV = "development"  # Environment variables specific to branch deploys
