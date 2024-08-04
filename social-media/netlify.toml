@@ -1,0 +1,25 @@
+[build]
+  base = "social media"
+
+  command = "npm run build"
+
+  publish = "social media/build"
+
+[dev]
+  # Base directory for local development (if different from production)
+  base = "social media"
+
+  # Command to run your local development server
+  command = "npm start"
+
+[context.production.environment]
+  # Environment variables specific to production
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  # Environment variables specific to deploy previews
+  NODE_ENV = "development"
+
+[context.branch-deploy.environment]
+  # Environment variables specific to branch deploys
+  NODE_ENV = "development"
