@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: my-socket-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    region: oregon
+    envVars:
+      - key: PORT
+        value: "10000"  # Replace with your desired port
+      # Add other environment variables as needed
