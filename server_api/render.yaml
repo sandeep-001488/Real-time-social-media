@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: my-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    region: oregon
+    envVars:
+      - key: MONGODB_URL
+        value: mongodb+srv://sandeepsanu1230:k5R8IWwUC14VC0EL@cluster2.e5sfuov.mongodb.net/data_info?retryWrites=true&w=majority&appName=Cluster2
