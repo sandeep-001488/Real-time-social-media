@@ -23,11 +23,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "cross-env CI=true react-app-rewired start",
-  "build": "cross-env CI=true react-app-rewired build",
-  "test": "cross-env CI=true react-app-rewired test",
-  "eject": "react-scripts eject"
-},
+    "start": "cross-env CI=true react-app-rewired start",
+    "build": "cross-env CI=true react-app-rewired build",
+    "test": "cross-env CI=true react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
