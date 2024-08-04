@@ -4,7 +4,7 @@
   publish = "client/build"  # Directory where your frontend build files will be located
 
 [dev]
-  base = "client"  # Base directory for local development (if different from production)
+  base = "client"  # Base directory for local development
   command = "npm start"  # Command to run your local development server
 
 [context.production.environment]
