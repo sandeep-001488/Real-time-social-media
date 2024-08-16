@@ -13,7 +13,7 @@ function Conversation({ conversation, currentUser }) {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/users?userId=" + friendId
+          "https://real-time-social-media-4.onrender.com/api/users?userId=" + friendId
         );
         setUser(res.data);
       } catch (error) {

@@ -20,7 +20,7 @@ export default function Post({ post }) {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/users?userId=${post.userId}`
+          `https://real-time-social-media-4.onrender.com/api/users?userId=${post.userId}`
         );
         setUserData(res.data);
       } catch (error) {
@@ -34,7 +34,7 @@ export default function Post({ post }) {
   const likeHandler = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/posts/${post._id}/like`,
+        `https://real-time-social-media-4.onrender.com/api/posts/${post._id}/like`,
         { userId: user._id }
       );
       if (response.data.message === "post has been liked") {

@@ -10,7 +10,7 @@ function Message({ own, message}) {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/users?userId=" + message?.sender
+          "https://real-time-social-media-4.onrender.com/api/users?userId=" + message?.sender
         );
         setUser(res.data);
       } catch (error) {

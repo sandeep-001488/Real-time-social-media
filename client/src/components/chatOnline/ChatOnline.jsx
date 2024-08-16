@@ -12,14 +12,15 @@ function ChatOnline({ onlineUsers, setCurrentChat, currentId }) {
     const getFriends = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/users/friends/${currentId}`
+          `https://real-time-social-media-4.onrender.com/api/users/friends/${currentId}`
         );
-        setFriends(res.data);
+
+        setFriends(res.data); 
       } catch (error) {
         console.error("Error fetching friends:", error);
       }
     };
-    getFriends();
+    getFriends()
   }, [currentId]);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function ChatOnline({ onlineUsers, setCurrentChat, currentId }) {
 
   const handleClick=async(friend)=>{
     try {
-      const res=await axios.get(`http://localhost:5000/api/conversation/find/${currentId}/${friend._id}`)
+      const res=await axios.get(`https://real-time-social-media-4.onrender.com/api/conversation/find/${currentId}/${friend._id}`)
       setCurrentChat(res.data)
     } catch (error) {
       console.log(error);

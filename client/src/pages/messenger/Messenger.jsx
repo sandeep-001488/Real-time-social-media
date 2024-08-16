@@ -26,7 +26,7 @@ function Messenger() {
 
   useEffect(() => {
     // Initialize the socket connection once
-    socket.current = io("ws://localhost:8000");
+    socket.current = io("wss://real-time-social-media-6.onrender.com");
 
     // Setup socket event listeners
     socket.current.on("getMessage", (data) => {
@@ -78,7 +78,7 @@ function Messenger() {
     const getConversations = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/conversation/" + user._id
+          "https://real-time-social-media-4.onrender.com/api/conversation/" + user._id
         );
         setConversations(res.data);
       } catch (error) {
@@ -93,7 +93,7 @@ function Messenger() {
       try {
         if (currentChat) {
           const res = await axios.get(
-            "http://localhost:5000/api/messages/" + currentChat._id
+            "https://real-time-social-media-4.onrender.com/api/messages/" + currentChat._id
           );
           setMessages(res.data);
         }
@@ -127,7 +127,7 @@ function Messenger() {
     });
 
     try {
-      await axios.post("http://localhost:5000/api/messages", message);
+      await axios.post("https://real-time-social-media-4.onrender.com/api/messages", message);
       setNewMessage("");
     } catch (error) {
       console.log("error while sending new messages", error);
@@ -145,7 +145,7 @@ function Messenger() {
     const friendId = c.members.find((member) => member !== user?._id);
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/users?userId=" + friendId
+        "https://real-time-social-media-4.onrender.com/api/users?userId=" + friendId
       );
       setSelectedUser(res.data);
     } catch (error) {
