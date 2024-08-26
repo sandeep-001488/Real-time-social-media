@@ -124,11 +124,12 @@ function Messenger() {
       senderId: user._id,
       receiverId,
       text: newMessage,
+    
     });
 
     try {
-      await axios.post("https://real-time-social-media-4.onrender.com/api/messages", message);
       setNewMessage("");
+      await axios.post("https://real-time-social-media-4.onrender.com/api/messages", message);
     } catch (error) {
       console.log("error while sending new messages", error);
     }
