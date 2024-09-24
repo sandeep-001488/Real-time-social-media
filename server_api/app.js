@@ -63,10 +63,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 createAdminAccount();
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
 
 app.use("/api/auth", authRoute);
 app.use("/api/auth", loginRoute);

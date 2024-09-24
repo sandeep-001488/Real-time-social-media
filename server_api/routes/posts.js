@@ -85,7 +85,7 @@ router.put("/:id/like", async (req, res) => {
       await post.updateOne({ $push: { likes: req.body.userId } });
       res.status(201).json({ message: "post has been liked" });
     } else {
-      // If the user has already liked the post, remove the user's ID from the likes array
+      // If the user has already liked the post,  remove the user's ID from the likes array
       await post.updateOne({ $pull: { likes: req.body.userId } });
       res.status(201).json({ message: "post has been disliked" });
     }
