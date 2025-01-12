@@ -30,13 +30,16 @@ export default function Register() {
         password:passwordInput.current.value,
       }
       try {
-        await axios.post("auth/register",user)
+        await axios.post(
+          "https://real-time-social-media-4.onrender.com/api/auth/register",
+          user
+        );
         navigate("/login")        
       } catch (error) {
         console.log(error);
       }
+
    
-    // Clear input fields after successful submission
     usernameInput.current.value = "";
     emailInput.current.value = "";
     passwordInput.current.value = "";

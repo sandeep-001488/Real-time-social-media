@@ -9,7 +9,7 @@ router.post('/login',upload.none(), async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    console.log("Login request received with email:", email); // Debug logging
+    console.log("Login request received with email:", email); 
     
     const existingUser = await User.findOne({ email });
   
@@ -17,7 +17,7 @@ router.post('/login',upload.none(), async (req, res) => {
       return res.status(404).json({ message: "Invalid email" });
     }
     
-    console.log("Found user:", existingUser); // Debug logging
+    console.log("Found user:", existingUser);
     
     const isPasswordValid = await bcrypt.compare(password, existingUser.password);
     
