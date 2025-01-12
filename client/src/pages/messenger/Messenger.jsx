@@ -11,6 +11,7 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import axios from "axios";
 import { io } from "socket.io-client";
 
+
 function Messenger() {
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -25,10 +26,10 @@ function Messenger() {
   const Pf = process.env.REACT_APP_PUBLIC_FOLDER;
 
   useEffect(() => {
-    // Initialize the socket connection once
+    
     socket.current = io("wss://real-time-social-media-6.onrender.com");
 
-    // Setup socket event listeners
+    
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -37,7 +38,6 @@ function Messenger() {
       });
     });
 
-    // Cleanup the socket connection on component unmount
     return () => {
       socket.current.disconnect();
     };

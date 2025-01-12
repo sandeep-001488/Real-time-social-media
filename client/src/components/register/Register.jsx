@@ -14,13 +14,11 @@ export default function Register() {
   const handleClick =async (e) => {
     e.preventDefault();
  
-     // Validate password length
      if (passwordInput.current.value.length < 4) {
        passwordInput.current.setCustomValidity("Password length should be at least 4");
        return
      }
  
-     // Validate password match
      if (passwordAgainInput.current.value !== passwordInput.current.value) {
        passwordAgainInput.current.setCustomValidity("Passwords don't match");
        return
@@ -44,6 +42,9 @@ export default function Register() {
     passwordInput.current.value = "";
     passwordAgainInput.current.value = "";
   };
+
+
+
   return (
     <div className="register">
       <div className="registerWrapper">

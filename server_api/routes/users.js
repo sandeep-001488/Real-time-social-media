@@ -75,7 +75,7 @@ router.get("/friends/:userId", async (req, res) => {
 
     const friends = await Promise.all(
       user.followings
-        .filter((friendId) => friendId) // Filter out undefined values
+        .filter((friendId) => friendId) 
         .map(async (friendId) => {
           const friend = await User.findById(friendId);
           if (friend) {

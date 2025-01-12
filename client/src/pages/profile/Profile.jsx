@@ -16,12 +16,10 @@ const username=useParams().username
     const fetchUser= async()=>{
       const res =await axios.get(`https://real-time-social-media-4.onrender.com/api/users?username=${username}`)
       setUser(res.data)
-      // console.log(res.data);
     }
-
     fetchUser()
   },[username])
-  // console.log(user.profilePicture);
+
   return (
     <>
       <Topbar />

@@ -39,9 +39,12 @@ export default function Rightbar({ user }) {
   const followBtnHandler = async () => {
     try {
       if (!followed) {
-        await axios.put(`https://real-time-social-media-4.onrender.com/api/users/${user._id}/follow`, {
-          userId: currentUser._id,
-        });
+        await axios.put(
+          `https://real-time-social-media-4.onrender.com/api/users/${user._id}/follow`,
+          {
+            userId: currentUser._id,
+          }
+        );
         dispatch({ type: "FOLLOW", payload: user._id });
       } else {
         await axios.put(
@@ -53,20 +56,18 @@ export default function Rightbar({ user }) {
         dispatch({ type: "UNFOLLOW", payload: user._id });
       }
       setFollowed(!followed);
-      console.log(followed);
     } catch (err) {
       console.log(err);
     }
   };
 
-  // HomeRightbar component to display on the home page
   const HomeRightbar = () => {
     return (
       <>
         <div className="birthdayContainer">
           <img className="birthdayImg" src={`${PF}gift.png`} alt="" />
           <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birthday today.
+            <b>Sandeep</b> and <b>3 other friends</b> have a birthday today.
           </span>
         </div>
         <img className="rightbarAd" src={`${PF}ad.png`} alt="" />
